@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>主页</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: black;
+      /* background-image: linear-gradient(to top,
+        #e6e9f0 0%,#eef1f5 100%
+      ); */
+      /* background-color: rgb(113, 54, 29); */
+    }
+    /* 按钮样式 */
+    .button{
+      
+      display: inline-block;
+      position: relative;
+      transform: translate(0,250px);
+      z-index: 1;
+      text-decoration: none;
+      font-family: sans-serif;
+      font-weight: 600;
+      font-size: 2em;
+      padding: 0.75em 1em;
+      color: blue;
+      border: 0.15em solid blue;
+      border-radius: 2em;
+      transition: 4s;
+      overflow: hidden;
+
+    }
+    .button::before,
+    .button::after{
+      content: "";
+      position: absolute;
+      top: -0.5em;
+      z-index: -1;
+      width: 200%;
+      aspect-ratio: 1;
+      border:none;
+      background-color: rgba(0, 0, 255, 0.25);
+      transition: 4s;
+     border-radius: 4em;
+    }
+    .button::before{
+      left: -80%;
+      transform: translate3d(0,5em,0) rotate(-340deg);
+    }
+    .button::after{
+      right: -80%;
+      transform: translate3d(0,5em,0) rotate(390deg);
+    }
+    .button:hover,
+    .button:focus{
+      color: white;
+    }
+    .button:hover::before,
+    .button:hover::after,
+    .button:focus::after,
+    .button:focus::before{
+      transform: none;
+      background-color: rgba(0, 0,255,0.75);
+    }
+  </style>
+</head>
+<body style="background-image: url(./images/1323172174.jpeg); background-size: cover;background-repeat: no-repeat;;">
+  <a href="./002-dy.html" class="button">&nbsp;&nbsp;&nbsp;Enter&nbsp; &nbsp;&nbsp; </a>
+</body>
+</html>

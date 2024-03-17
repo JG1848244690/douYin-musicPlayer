@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dxy-music</title>
+  <link rel="stylesheet" href="./css/dxy-music.css">
+</head>
+<body>
+
+  <div class="player">
+   
+    <!-- 按钮控制音乐播放 -->
+    <button class="controller-muted">静音</button>
+    <button class="controller-change">切换</button>
+    <!-- 音乐播放部分 -->
+    <audio  autoplay loop="true"  >
+      <source src="./music/搁浅_21-24-38.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  <p class="music-words"></p>
+
+   <script>
+    //新建一个资源数组
+    const music =  [
+      {
+        url:"./music/暗号_09-26-09.mp3",
+        name:"暗号-周杰伦"
+      },
+      {
+        url:"./music/半岛铁盒_09-25-11.mp3",
+        name:"半岛铁盒-周杰伦"
+      },
+      {
+        url:"./music/反方向的钟_21-30-29.mp3",
+        name:"反方向的钟-周杰伦"
+      },
+      {
+        url:"./music/枫_16-57-38.mp3",
+        name:"枫-周杰伦"
+      },
+      {
+        url:"./music/搁浅_21-24-38.mp3",
+        name:"搁浅-周杰伦"
+      },
+      {
+        url:"./music/兰亭序_09-20-45.mp3",
+        name:"兰亭序-周杰伦"
+      },
+      {
+        url:"./music/明明就_09-23-01.mp3",
+        name:"明明就-周杰伦"
+      },
+      {
+        url:"./music/晴天_09-28-03.mp3",
+        name:"晴天-周杰伦"
+      }
+    ]
+    
+    let random = parseInt(Math.random() * music.length)
+    //获取对象
+    let audio = document.querySelector("audio")
+    let conntroller = document.querySelector(".player .controller-muted")
+    let conntrollerChange = document.querySelector(".player .controller-change")
+    let musicWords = document.querySelector(".music-words")
+      //出现音乐进度条
+      audio.controls = true
+      
+    //静音按钮的点击事件
+    conntroller.addEventListener("click",function(){
+       audio.muted = !(audio.muted)
+    })
+    //点击切换按钮
+    conntrollerChange.addEventListener("click",function(){
+          
+          randomPlayMusic()
+          //改变播放器的背景颜色
+          var rc =getRandomColor()
+          console.log(rc);
+          audio.style.webkitTextFillColor=rc
+         
+          
+      })
+    //随机播放音乐的函数
+    function randomPlayMusic(){
+    
+      //从数组中随机选择一个文件索引
+      let random = parseInt(Math.random() * music.length)
+      audio.src=music[random].url
+      //audio.play()
+      musicWords.innerHTML = music[random].name
+    }
+    //随机颜色的函数
+     function getRandomColor(){
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+       for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+      return color;
+    }
+    //按下空格切换下一首
+    
+    document.addEventListener("keyup", function(event) {
+      if (event.key === " ") {
+      
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }}
+  });
+  </script>
+</body>
+</html>

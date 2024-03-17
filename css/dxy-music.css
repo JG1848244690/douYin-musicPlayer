@@ -1,0 +1,24 @@
+body {
+  background-color: rgb(72, 75, 79);
+  background-image: url(../images/1323172174.jpeg);
+}
+/* 播放器的样式 */
+audio::-webkit-media-controls-panel{
+  background-color: rgb(221, 226, 140);
+
+}
+.music-words{
+  display: block;
+  height: 80px;
+  text-align: center;
+  color: beige;
+}
+audio{
+  display: block;
+  width:1000px;
+
+  background-color: pink;
+  display: block;
+  margin-left: 50%;
+  translate: -50%;
+}
